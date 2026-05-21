@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitrenew — Daily Support for Changing Eyes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+
+:root {
+  --navy: #1A2A5E;
+  --navy-light: #2E4080;
+  --blue-mid: #4A6FA5;
+  --blue-soft: #8BA4C8;
+  --blue-pale: #C8D8ED;
+  --blue-wash: #EBF1F8;
+  --white: #FAFCFF;
+  --warm-white: #F5F7FA;
+  --text-dark: #1A2A5E;
+  --text-mid: #3D5080;
+  --text-light: #6B82A8;
+  --sand: #C4A882;
+  --leaf: #5A8A6A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: var(--text-dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(250,252,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(26,42,94,0.08);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.nav-wordmark {
+  font-family: 'Jost', sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  letter-spacing: 0.22em;
+  color: var(--navy);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--navy); }
+
+.nav-cta {
+  padding: 9px 24px;
+  background: var(--navy);
+  color: var(--white) !important;
+  border-radius: 2px;
+  font-size: 11px !important;
+  letter-spacing: 0.2em !important;
+}
+
+.nav-cta:hover { background: var(--navy-light); color: var(--white) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(74,111,165,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(26,42,94,0.08) 0%, transparent 50%),
+    var(--white);
+  overflow: hidden;
+}
+
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  animation: floatUp linear infinite;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(0) scale(1); }
+  15% { opacity: 0.5; }
+  85% { opacity: 0.08; }
+  100% { opacity: 0; transform: translateY(-140px) scale(0.1); }
+}
+
+.hero-inner {
+  max-width: 820px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-logo-mark {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 28px;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+}
+
+.hero-tagline-small {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--blue-soft);
+  margin-bottom: 20px;
+  animation: fadeUp 1s 0.2s ease forwards;
+  opacity: 0;
+  display: block;
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--navy);
+  margin-bottom: 12px;
+  animation: fadeUp 1s 0.3s ease forwards;
+  opacity: 0;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--blue-mid);
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-mid);
+  margin-bottom: 36px;
+  animation: fadeUp 1s 0.4s ease forwards;
+  opacity: 0;
+}
+
+.hero-pills {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  animation: fadeUp 1s 0.5s ease forwards;
+  opacity: 0;
+}
+
+.pill {
+  padding: 6px 18px;
+  border: 1px solid var(--blue-pale);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--blue-mid);
+  text-transform: uppercase;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp 1s 0.6s ease forwards;
+  opacity: 0;
+}
+
+.btn-primary {
+  padding: 14px 36px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover { background: var(--navy-light); }
+
+.btn-secondary {
+  padding: 14px 36px;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover { background: var(--navy); color: var(--white); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  animation: fadeUp 1s 1.2s ease forwards;
+}
+
+.hero-scroll span {
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.scroll-bar {
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(to bottom, var(--blue-soft), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse { 0%,100%{opacity:0.4}50%{opacity:1} }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTION SHARED ── */
+section { padding: 96px 40px; }
+
+.section-label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--blue-soft);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.section-body {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--text-mid);
+  max-width: 640px;
+}
+
+.max-w { max-width: 1140px; margin: 0 auto; }
+
+/* ── FOUNDER STORY ── */
+.founder {
+  background: var(--blue-wash);
+}
+
+.founder-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.founder-quote {
+  border-left: 3px solid var(--blue-soft);
+  padding-left: 28px;
+  margin: 32px 0;
+}
+
+.founder-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.founder-visual {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue-mid) 100%);
+  border-radius: 4px;
+  padding: 48px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-visual::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+
+.founder-visual::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.founder-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item { border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 24px; }
+.stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--white);
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.65);
+  margin-top: 4px;
+}
+
+/* ── WHY IT MATTERS ── */
+.why {
+  background: var(--white);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 56px;
+  border: 1px solid var(--blue-pale);
+}
+
+.why-card {
+  padding: 40px 32px;
+  background: var(--white);
+  border-right: 1px solid var(--blue-pale);
+  transition: background 0.3s;
+}
+
+.why-card:last-child { border-right: none; }
+.why-card:hover { background: var(--blue-wash); }
+
+.why-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--blue-wash);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.why-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.why-body {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+/* ── EDUCATION ── */
+.education {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.education .section-label { color: var(--blue-soft); }
+.education .section-title { color: var(--white); }
+
+.education-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 64px;
+  align-items: end;
+}
+
+.education .section-body { color: rgba(255,255,255,0.65); }
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.article-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 36px 32px;
+  transition: background 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.article-card:hover { background: rgba(255,255,255,0.08); }
+
+.article-tag {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--blue-soft);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.article-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.article-body {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.5);
+}
+
+.article-arrow {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blue-soft);
+}
+
+/* ── CONTENT PILLARS ── */
+.pillars {
+  background: var(--warm-white);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-top: 56px;
+}
+
+.pillar-card {
+  padding: 36px 24px;
+  background: var(--white);
+  text-align: center;
+  border: 1px solid var(--blue-pale);
+  transition: all 0.3s;
+}
+
+.pillar-card:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.pillar-card:hover .pillar-number { color: rgba(255,255,255,0.2); }
+.pillar-card:hover .pillar-name { color: var(--white); }
+.pillar-card:hover .pillar-desc { color: rgba(255,255,255,0.6); }
+
+.pillar-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--blue-pale);
+  line-height: 1;
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+
+.pillar-name {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+
+.pillar-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-light);
+  transition: color 0.3s;
+}
+
+/* ── WHO WE SERVE ── */
+.serve {
+  background: var(--white);
+}
+
+.serve-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.serve-card {
+  text-align: center;
+  padding: 36px 20px;
+  border: 1px solid var(--blue-pale);
+  border-radius: 2px;
+  transition: border-color 0.3s;
+}
+
+.serve-card:hover { border-color: var(--blue-mid); }
+
+.serve-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--blue-wash);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 24px;
+}
+
+.serve-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.serve-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+
+/* ── PILOT PROGRAMS ── */
+.pilots {
+  background: var(--blue-wash);
+}
+
+.pilots-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 56px;
+}
+
+.pilot-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 0;
+  background: var(--white);
+  border: 1px solid var(--blue-pale);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.pilot-row:hover { border-color: var(--blue-mid); }
+
+.pilot-num {
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.3);
+  padding: 28px 16px;
+}
+
+.pilot-content {
+  padding: 28px 32px;
+  border-left: 1px solid var(--blue-pale);
+}
+
+.pilot-name {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.pilot-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.pilot-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.pilot-badge {
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid var(--blue-pale);
+}
+
+.badge {
+  padding: 6px 16px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 100px;
+}
+
+.badge-current { background: var(--navy); color: var(--white); }
+.badge-future { background: var(--blue-pale); color: var(--blue-mid); }
+
+/* ── PARTNERSHIP MODEL ── */
+.partnership {
+  background: var(--white);
+}
+
+.partnership-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 56px;
+  flex-wrap: wrap;
+}
+
+.flow-node {
+  text-align: center;
+  padding: 36px 40px;
+  border: 1px solid var(--blue-pale);
+  background: var(--white);
+  min-width: 160px;
+}
+
+.flow-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.flow-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.flow-arrow {
+  font-size: 20px;
+  color: var(--blue-pale);
+  padding: 0 8px;
+  font-weight: 300;
+}
+
+/* ── EMAIL CAPTURE ── */
+.email-section {
+  background: var(--navy);
+  text-align: center;
+  padding: 80px 40px;
+}
+
+.email-section .section-title { color: var(--white); margin: 0 auto 12px; }
+.email-section .section-label { text-align: center; }
+
+.email-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  margin: 0 auto 40px;
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+.email-form {
+  display: flex;
+  gap: 0;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.email-input {
+  flex: 1;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-right: none;
+  color: var(--white);
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.email-input::placeholder { color: rgba(255,255,255,0.35); }
+.email-input:focus { border-color: rgba(255,255,255,0.4); }
+
+.email-btn {
+  padding: 14px 28px;
+  background: var(--white);
+  color: var(--navy);
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.email-btn:hover { background: var(--blue-pale); }
+
+.email-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 16px;
+  letter-spacing: 0.08em;
+}
+
+/* ── VALUES STRIP ── */
+.values-strip {
+  background: var(--blue-wash);
+  padding: 32px 40px;
+}
+
+.values-inner {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.value-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+}
+
+.value-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue-soft);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #0F1A3A;
+  padding: 48px 40px 32px;
+}
+
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 28px;
+}
+
+.footer-brand-name {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.22em;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.footer-brand-tag {
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+
+.footer-brand-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-col-title {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-legal {
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  section { padding: 64px 20px; }
+  .founder-inner,
+  .education-intro { grid-template-columns: 1fr; gap: 40px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-card { border-right: none; border-bottom: 1px solid var(--blue-pale); }
+  .articles-grid { grid-template-columns: 1fr; }
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .serve-grid { grid-template-columns: repeat(2, 1fr); }
+  .pilot-row { grid-template-columns: 56px 1fr; }
+  .pilot-badge { display: none; }
+  .partnership-flow { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+  .footer-top { grid-template-columns: 1fr; gap: 40px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .email-form { flex-direction: column; }
+  .email-input { border-right: 1px solid rgba(255,255,255,0.15); border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDE0IDQxNCI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzFhMmE1ZTsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsOiAjYWRiYmQ1OwogICAgICB9CgogICAgICAuY2xzLTMsIC5jbHMtNCB7CiAgICAgICAgZmlsbDogbm9uZTsKICAgICAgfQoKICAgICAgLmNscy01IHsKICAgICAgICBmaWxsOiAjYzBjYmUxOwogICAgICB9CgogICAgICAuY2xzLTYgewogICAgICAgIGZpbGw6ICM3ZDkxYjc7CiAgICAgIH0KCiAgICAgIC5jbHMtNyB7CiAgICAgICAgZmlsbDogIzAyMzM2YTsKICAgICAgfQoKICAgICAgLmNscy04IHsKICAgICAgICBmaWxsOiAjNTM2Yzk4OwogICAgICB9CgogICAgICAuY2xzLTkgewogICAgICAgIGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0xKTsKICAgICAgfQoKICAgICAgLmNscy0xMCB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoLTMpOwogICAgICB9CgogICAgICAuY2xzLTExIHsKICAgICAgICBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgtNCk7CiAgICAgIH0KCiAgICAgIC5jbHMtMTIgewogICAgICAgIGNsaXAtcGF0aDogdXJsKCNjbGlwcGF0aC0yKTsKICAgICAgfQoKICAgICAgLmNscy0xMyB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoLTYpOwogICAgICB9CgogICAgICAuY2xzLTE0IHsKICAgICAgICBjbGlwLXBhdGg6IHVybCgjY2xpcHBhdGgtNSk7CiAgICAgIH0KCiAgICAgIC5jbHMtMTUgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtNCB7CiAgICAgICAgc3Ryb2tlOiAjMDAwOwogICAgICAgIHN0cm9rZS1taXRlcmxpbWl0OiAxMDsKICAgICAgfQoKICAgICAgLmNscy0xNiB7CiAgICAgICAgZmlsbDogI2Q4ZGZlZjsKICAgICAgfQoKICAgICAgLmNscy0xNyB7CiAgICAgICAgZmlsbDogI2M4ZDhlZDsKICAgICAgfQoKICAgICAgLmNscy0xOCB7CiAgICAgICAgZmlsbDogI2Q4ZTJmMTsKICAgICAgfQoKICAgICAgLmNscy0xOSB7CiAgICAgICAgY2xpcC1wYXRoOiB1cmwoI2NsaXBwYXRoKTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgiPgogICAgICA8cmVjdCBjbGFzcz0iY2xzLTMiIHk9IjAiIHdpZHRoPSI0MTQiIGhlaWdodD0iNDE0Ii8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoIGlkPSJjbGlwcGF0aC0xIj4KICAgICAgPHJlY3QgY2xhc3M9ImNscy0zIiB5PSIwIiB3aWR0aD0iNDE0IiBoZWlnaHQ9IjQxNCIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtMiI+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMyIgeT0iMCIgd2lkdGg9IjQxNCIgaGVpZ2h0PSI0MTQiLz4KICAgIDwvY2xpcFBhdGg+CiAgICA8Y2xpcFBhdGggaWQ9ImNsaXBwYXRoLTMiPgogICAgICA8cmVjdCBjbGFzcz0iY2xzLTMiIHg9IjI1LjgyIiB5PSIyMzguNzYiIHdpZHRoPSIzMDEuMTYiIGhlaWdodD0iMTU5LjI3Ii8+CiAgICA8L2NsaXBQYXRoPgogICAgPGNsaXBQYXRoIGlkPSJjbGlwcGF0aC00Ij4KICAgICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNODIuMDMsMjIwLjYxYy0yNS40LDAtNDUuNTIsOS44Mi01NC41MywxNC44Nyw4Ljc3LTIuMzEsMjIuMTYtNC41NSwzOC4wNi0yLjI1LDE3LjAxLDIuNDYsMjguODYsOC45NCwzNi4wNCwxMi45NSwxNi4wMSw4Ljk2LDI1Ljc5LDE5LjM4LDI4LjE2LDIxLjk2LDcuNDksOC4xOCw3LjcsMTEuMDYsMTcuNDYsMjMuMTQsMCwwLDguNjMsMTAuNjksMjAuMjcsMjEuOTEsNTMuNyw1MS43NiwxMDYuOTksNDguNDMsMTA2Ljk5LDQ4LjQzLDM3Ljk4LTIuMzgsNjMuNDktMjQuMyw2OC4xNC0yOC40MiwxOC4zNy0xNi4zLDI3LjAyLTM1LjI0LDMyLjY2LTQ3LjYsNy41LTE2LjQyLDExLjQyLTMyLjE0LDEwLjE0LTMyLjY2LTEuNTMtLjYxLTcuMDEsMjEuNC0yNC43OCw0MS42Ny01LjA5LDUuOC0yMy4wNiwyNS43NC01NC4wNiwzMy43OS00LjQ4LDEuMTYtMzUuMTEsOC42Ni02OC4xNC01LTIwLjQ5LTguNDctMzMuOTUtMjEuOC01MS44MS0zOS40OS0xNC42My0xNC40OS0xMi40NS0xNS41My0yMy42NS0yNS45LTExLjY4LTEwLjgyLTMzLjEzLTMwLjY4LTY0Ljc2LTM2LjA0LTUuNTgtLjk1LTEwLjk5LTEuMzUtMTYuMTgtMS4zNWgtLjAyWiIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtNSI+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMjUuNSIgeT0iMjE4LjYxIiB3aWR0aD0iMzYzIiBoZWlnaHQ9IjE0NSIvPgogICAgPC9jbGlwUGF0aD4KICAgIDxjbGlwUGF0aCBpZD0iY2xpcHBhdGgtNiI+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMyIgeT0iMCIgd2lkdGg9IjQxNCIgaGVpZ2h0PSI0MTQiLz4KICAgIDwvY2xpcFBhdGg+CiAgPC9kZWZzPgogIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXIgMSI+CiAgICA8ZyBpZD0iQXJ0d29ya185IiBkYXRhLW5hbWU9IkFydHdvcmsgOSI+CiAgICAgIDxnIGNsYXNzPSJjbHMtMTkiPgogICAgICAgIDxnIGNsYXNzPSJjbHMtOSI+CiAgICAgICAgICA8ZyBjbGFzcz0iY2xzLTEyIj4KICAgICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNDE0LDIwN2MwLDExNC4zMi05Mi42OCwyMDctMjA3LDIwN1MwLDMyMS4zMiwwLDIwNyw5Mi42OCwwLDIwNywwczIwNyw5Mi42OCwyMDcsMjA3Ii8+CiAgICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMTUiIGQ9Ik00MDMuNTIsMjA3YzAsMTA4LjUzLTg3Ljk4LDE5Ni41Mi0xOTYuNTIsMTk2LjUyUzEwLjQ4LDMxNS41MywxMC40OCwyMDcsOTguNDcsMTAuNDgsMjA3LDEwLjQ4czE5Ni41Miw4Ny45OCwxOTYuNTIsMTk2LjUyIi8+CiAgICAgICAgICAgIDxjaXJjbGUgY2xhc3M9ImNscy00IiBjeD0iMjA3IiBjeT0iMjA3IiByPSIxOTYuNTIiLz4KICAgICAgICAgICAgPHBhdGggY2xhc3M9ImNscy01IiBkPSJNMzA0Ljg1LDc2Ljk5YzAsMy42My0yLjk0LDYuNTctNi41Nyw2LjU3cy02LjU3LTIuOTQtNi41Ny02LjU3LDIuOTQtNi41Nyw2LjU3LTYuNTcsNi41NywyLjk0LDYuNTcsNi41NyIvPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTE3IiBkPSJNMjc0LjcsNTQuNGMxLjk3LDIuNDUsMS41OCw2LjAzLS44Nyw3Ljk5LTIuNDUsMS45Ny02LjAyLDEuNTgtNy45OS0uODctMS45Ny0yLjQ1LTEuNTgtNi4wMi44Ny03Ljk5LDIuNDUtMS45Nyw2LjAyLTEuNTgsNy45OS44NyIvPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTE2IiBkPSJNMjQ1LjAxLDQ2LjIyYzAsMi42MS0yLjEyLDQuNzMtNC43Myw0Ljczcy00LjczLTIuMTItNC43My00LjczLDIuMTItNC43Myw0LjczLTQuNzMsNC43MywyLjEyLDQuNzMsNC43MyIvPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTE4IiBkPSJNMjEzLjEzLDQxLjQ4YzAsMS44LTEuNDYsMy4yNS0zLjI1LDMuMjVzLTMuMjUtMS40Ni0zLjI1LTMuMjUsMS40Ni0zLjI1LDMuMjUtMy4yNSwzLjI1LDEuNDYsMy4yNSwzLjI1Ii8+CiAgICAgICAgICA8L2c+CiAgICAgICAgICA8ZyBjbGFzcz0iY2xzLTEwIj4KICAgICAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xNyIgZD0iTTI2LjA1LDI2My4yNGMtMS43NC0xMS42Nyw2LjQ5LTIyLjU0LDE4LjE4LTI0LjE0LjE5LS4wMi4zNy0uMDUuNTYtLjA3LDEwLjYyLTEuMywxOC41OSwyLjEyLDMxLjUzLDcuODgsOS4wNCw0LjAyLDIxLjE1LDkuNTIsMzQuMzUsMjAuODQsMTAuNDYsOC45NywxMS43NSwxMy4xNCwyNi40NywzMC45NywxMi4zMiwxNC45MywyMi4yNCwyNi45NCwzNC45MSwzNy43Myw5LjE4LDcuODEsMjUuMzEsMjEuMjYsNTAuMTEsMjguNzIsOC44LDIuNjUsMzkuMiwxMS4zNiw3MS41MiwwLDE4Ljg2LTYuNjMsMzIuMTItMTcuODksMzMuMjItMTYuMzMuOTcsMS4zNi04LjkxLDEwLjM3LTE3LjQ2LDE2Ljg5LTE1LjE3LDExLjU4LTI5LjA1LDE3LjU2LTM0LjM1LDE5LjcxLTIwLjY5LDguMzktMzcuOTYsMTAuMS01MC42OCwxMS4yNi0xNS4wMywxLjM3LTM1LjQsMy4wNi02MC44Mi0yLjgyLTMxLjcxLTcuMzMtNTIuOTQtMjIuMi02My42My0yOS44NS0yMS4yMy0xNS4xOC0zMy4zMS0zMC4yOC00NS42MS00NS42Ni0yMS4xLTI2LjM3LTI1LjM5LTQxLjExLTI3LjAzLTQ4LjMxLS41NC0yLjM3LS45Ni00LjY1LTEuMjktNi44NCIvPgogICAgICAgICAgPC9nPgogICAgICAgICAgPGcgY2xhc3M9ImNscy0xMSI+CiAgICAgICAgICAgIDxnIGNsYXNzPSJjbHMtMTQiPgogICAgICAgICAgICAgIDxpbWFnZSB3aWR0aD0iMzYzIiBoZWlnaHQ9IjE0NSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjUuNSAyMTguNjEpIiB4bGluazpocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQVd3QUFBQ1NDQVlBQUFCaGNQQmtBQUFBQ1hCSVdYTUFBQXNTQUFBTEVnSFMzWDc4QUFBR1owbEVRVlI0bk8zWTI0SFVTQXhBVVVGS1pFVkFaRVZLc0I5czc4SXdQZTFIMlNXcHpra0F0eTNkcWlFQ0FBQUFZRG1mWmovQVZwKy9mUDE1OTcvNTQvdTNNdThINkM5ZGtHYUVlUzhoQjJhWUdwNEtjZDVDd0lFNzNCNmFMcEgraUlBRFY3ZzhMQ3NFK2lQaURZeHlTVXhXai9RejRnMmNNU3dnSXIyZGNBTkhuQTZIVUo4ajNzQldoMkloMHVNSk4vREtya2dJOWZXRUczaG1VeHlFK243Q0RiejFZUlNFZWo3aEJoN2VqY0hSVUorSmk4UGhZOElOL0JHQlY5R2NHUTFCLzBXNFlWMy9MZi9iSUZZSXc2b1JyL0J0Z1BGYUxmNXFBUmR1V0V2YmhWOHAzc0lOYTFoaTBWZUl0MmhEZjhzdGVmZDRDemYwdGV4eWR3NjNhRU5QRmp0NnhsdTBvUjlML1J2aEJqS3p6Ty9vRm03UmhoNHM4Z2M2aFZ1MG9UNUx2SUZ3QXhsWTNoMjZoRnUwb1NhTHU1Tm9BN05ZMm9NNmhGdTBvUllMZTVKd0EzZXhxQU9JTm5BSFN6cFE5WENMTnVSbVFRY1RiZUFxbHZNaWxjTXQyakRmb3lHLzcrUG5lWS9UVytYb1ZUNXNvSU5uT3lqWUYvcngvZHVucXVFV2JjaW5aRXdxcWhyQXFnY09WUFY3Szk3dW54djJUYXFHNy9PWHJ6K3JIamJRaldEZnFHcTBJK3IraFFDVnZOb3p3YjZaLzljR2poTHNTVVFiMkt0a05EcXBHc0NxQnc1azliWUY3KzJZRy9aa1ZjTlg5YUNCeWdRN0FkR0d0VzNkSmNGT1FyU0JWd1E3a2FyUkJvNTc3OUx6ckFXQ25VekZhTHRsd3owRU95SFJoalhzM1J2QlRrcTBZVTBmN2I1Z0p5YmEwTmVSWFJIczVDcEdHN2lHR0JSUjdlYnFvSUhubnUzenE3MXh3eTZpV2dDckhUQlFnV0FYSXRwUTM1bTlFR3d1SmRxd3paWUxtV0FYVSsyV0hTSGE4SEIyRndTN0lOR0dYcmJ1dEdBWEpkcFF5NGo1RjJ5QWk0MjZyQWgyWVc3WlVOK2VQUmJzNGtRYmNoczU3NExORktMTkNsN04rZDRMbDJBM1VQR1dIU0hhc0pkZ055SGFrTXNWc3kzWVRDZmFkTE5scG85Y3NnUzdrYXEzN0FqUmhpM0tMampQVlk1ZjVVTUhJcTY3WFVlNFliZFVPWHFWRHh1NGVuNEZtM1JFbTg3T1hLZ0V1Nm5LdCt3STBhYWVPMmEyOUZMeld2WHdWVDk0V01QV1BUczd6MjdZelZVUFh2VURoLzd1bkZIQkpqM1JKcXM5c3puaThsVDY5c1YyWGFKWC9TOEcrdGk3VXlObTF3MTdFVjFDMStYZ2dTTmFMREhiZFFsZWx3T0ltbWJjcmlQY3NKZlRKWFJkRGg3cW1UbDdMWmFYL2JvRXI4c0JSQTFIOW1ia2pMcGhMNnBMNkxvY1BPU1hZZFphTEMzSFpSakNFYm9jUU9SMGRFOUd6NlViTmkxME9YaklKMHVzSXdSN2VaMXVwcUxOYU5sbXFzMnljazYyd1R5ajB5SEVQR2QyNHFvWmRNTW1JbnBGcnRQaHd4eFpaNmpOa2pKRzFrRTlxdE5CeEQzTzdzQ1ZNK2VHelIrNkJhN2JBY1Mxc3M5THErVmtuT3lEdTFlM2c0aXhSczM3MVhQbWhzMjd1Z1d1MndIRU9KVm1vOVZTTWw2bFlkNmkyMEhFT1NQbis0N1pNcnk4MUMzYUVjSk52VmhIQ0RZYmlUWmRYREhMZ2swNm9rMTFsV01kSWRqczFESGFFY0s5Z3VxeGpoQnNEaEJ0S3JseVhnV2JFcnBHTzBLNE8ra1U2d2pCNWdUUkpxdXJaM1BXZkJoS1R1a2M3UWpocnVhdWVSUnN5dW9lN1FqaHJxQjdyQ01FbTBGRW0xbnVuTDNaTTJBQUdXYUZhRWZNWDFwK3VYdmVNbnozNlE5QUw2dEVPeUxIQXE5bzFveGwrTjdUSDRDZWhKdlJaczVVbG0rYzRpSG9hYVZvUDJSWjdFNW16MUdtYjVybVFlaHA5ckxOa21uSnE4b3dPOW0rWTZxSG9hY01pemRUdHFYUExOT3NaUHh1NlI2SW5qSXQ0aXdaQTVCRnR2bkkrcTFTUGhSOVpWdk1XYklHNFU1Wlp5SHp0MG43WVBTVmRWRm55aHlKVVNwODkremZJZlhEMFZlRjVaMHBlemkycXZTZEs3eno5QTlJWDVXV09ZUHNRYW44UGJPLzI0Y1NEMGx2bFJjOWc3dGowKzE3VllsMWhHQ1RSTGNJVUVPbFdFY0lOc2tJTjNlcEZ1c0l3U1loMGVacUZXTWRJZGdrSmRwY3BXcXNJd1NiNUlTYmtTckhPa0t3S1VDMEdhRjZyQ01FbTBLRW02TTZ4RHBDc0NsR3RObWpTNmdmV3YwWTFpSGN2Tkl0MWhHQ1RYSEN6WHM2eGpwQ3NHbEF0SG5vR3VxSDFqK090UWozMnJySE9rS3dhVWk0MTdKQ3FCK1crYUdzUjdqN1d5bldFWUxOQW9TN245VkMvYkRrajJaTndsM2ZxcUYrV1BySHN5YmhybW4xV0VjSU5nc1Q3aHFFK245ZUJNc1Q3cHlFK205ZUNQeEx1SE1RNnVlOEdIaER1T2NRNnRlOElQaUFlRjlQcUxmem9tQUQ0UjVQcVBmendtQW44VDVPcE0veDh1QUU4ZDVHcU1md0VtRVE4ZjZUU0kvbmhjSUZWbzIzU0YvTHk0VWJkQTY0U04vSGk0WUpLZ2Rjb09meDRpR0pyQkVYNkR4OENFanVycEFMYzM0K0VEVHlMTzVpREFBMytnYzFLZ1lDZzBLZVFBQUFBQUJKUlU1RXJrSmdnZz09Ii8+CiAgICAgICAgICAgIDwvZz4KICAgICAgICAgIDwvZz4KICAgICAgICAgIDxnIGNsYXNzPSJjbHMtMTMiPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTciIGQ9Ik0zMjUuOTgsMjk2LjY2YzAsOC41NS02LjkzLDE1LjQ5LTE1LjQ5LDE1LjQ5cy0xNS40OC02LjkzLTE1LjQ4LTE1LjQ5LDYuOTMtMTUuNDgsMTUuNDgtMTUuNDgsMTUuNDksNi45MywxNS40OSwxNS40OCIvPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTciIGQ9Ik0zNTQuMzksMjU4LjkzYzAsNy43NS02LjI4LDE0LjAzLTE0LjAzLDE0LjAzcy0xNC4wMy02LjI4LTE0LjAzLTE0LjAzLDYuMjgtMTQuMDMsMTQuMDMtMTQuMDMsMTQuMDMsNi4yOCwxNC4wMywxNC4wMyIvPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik0zNjQuOTUsMTc1LjcyYzAsNi40NS01LjIzLDExLjY4LTExLjY4LDExLjY4cy0xMS42OC01LjIzLTExLjY4LTExLjY4LDUuMjMtMTEuNjgsMTEuNjgtMTEuNjgsMTEuNjgsNS4yMywxMS42OCwxMS42OCIvPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTgiIGQ9Ik0zNjUuOTUsMjE2Ljk2YzAsNy4wNy01LjczLDEyLjc5LTEyLjc5LDEyLjc5cy0xMi43OS01LjczLTEyLjc5LTEyLjc5LDUuNzMtMTIuNzksMTIuNzktMTIuNzksMTIuNzksNS43MywxMi43OSwxMi43OSIvPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zMzEuNywxMDMuMDZjMCw0Ljc2LTMuODYsOC42MS04LjYxLDguNjFzLTguNjEtMy44Ni04LjYxLTguNjEsMy44Ni04LjYxLDguNjEtOC42MSw4LjYxLDMuODYsOC42MSw4LjYxIi8+CiAgICAgICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTM1MS41LDEzNi42MmMwLDUuNDctNC40Myw5LjktOS45LDkuOXMtOS45LTQuNDMtOS45LTkuOSw0LjQzLTkuOSw5LjktOS45LDkuOSw0LjQzLDkuOSw5LjkiLz4KICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==" style="width:44px;height:44px;object-fit:contain;" alt="Vitrenew">
+    <span class="nav-wordmark">VITRENEW</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#education">Learn</a></li>
+    <li><a href="#pillars">Topics</a></li>
+    <li><a href="#pilots">Pilot Programs</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#signup" class="nav-cta">Stay Informed</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="hero-inner">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" class="hero-logo-mark" style="width:clamp(200px,28vw,340px);height:auto;animation:fadeUp 1s ease forwards;opacity:0;" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 684.52 592.06">
+<defs><style>@font-face {
+  font-family: 'OpticianSans-Regular';
+  src: url('data:font/otf;base64,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') format('opentype');
+}
+</style></defs>
+<defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #1a2a5e;
+      }
+
+      .cls-3 {
+        fill: #adbbd5;
+      }
+
+      .cls-4, .cls-5 {
+        fill: none;
+      }
+
+      .cls-6 {
+        fill: #c0cbe1;
+      }
+
+      .cls-7 {
+        fill: #7d91b7;
+      }
+
+      .cls-8 {
+        fill: #02336a;
+      }
+
+      .cls-9 {
+        fill: #536c98;
+      }
+
+      .cls-10 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-11 {
+        clip-path: url(#clippath-3);
+      }
+
+      .cls-12 {
+        clip-path: url(#clippath-4);
+      }
+
+      .cls-13 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-14 {
+        clip-path: url(#clippath-6);
+      }
+
+      .cls-15 {
+        clip-path: url(#clippath-5);
+      }
+
+      .cls-16 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-17 {
+        fill: #d8dfef;
+      }
+
+      .cls-18 {
+        fill: #c8d8ed;
+      }
+
+      .cls-2 {
+        font-family: OpticianSans-Regular, 'Optician Sans';
+        font-size: 140px;
+      }
+
+      .cls-19 {
+        fill: #d8e2f1;
+      }
+
+      .cls-20 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-4" x="135.26" y="0" width="414" height="414"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-4" x="135.26" y="0" width="414" height="414"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <rect class="cls-4" x="135.26" y="0" width="414" height="414"/>
+    </clipPath>
+    <clipPath id="clippath-3">
+      <rect class="cls-4" x="161.08" y="238.76" width="301.16" height="159.27"/>
+    </clipPath>
+    <clipPath id="clippath-4">
+      <path class="cls-4" d="M217.29,220.61c-25.4,0-45.52,9.82-54.53,14.87,8.77-2.31,22.16-4.55,38.06-2.25,17.01,2.46,28.86,8.94,36.04,12.95,16.01,8.96,25.79,19.38,28.16,21.96,7.49,8.18,7.7,11.06,17.46,23.14,0,0,8.63,10.69,20.27,21.91,53.7,51.76,106.99,48.43,106.99,48.43,37.98-2.38,63.49-24.3,68.14-28.42,18.37-16.3,27.02-35.24,32.66-47.6,7.5-16.42,11.42-32.14,10.14-32.66-1.53-.61-7.01,21.4-24.78,41.67-5.09,5.8-23.06,25.74-54.06,33.79-4.48,1.16-35.11,8.66-68.14-5-20.49-8.47-33.95-21.8-51.81-39.49-14.63-14.49-12.45-15.53-23.65-25.9-11.68-10.82-33.13-30.68-64.76-36.04-5.58-.95-10.99-1.35-16.18-1.35h-.02Z"/>
+    </clipPath>
+    <clipPath id="clippath-5">
+      <rect class="cls-4" x="160.76" y="218.61" width="363" height="145"/>
+    </clipPath>
+    <clipPath id="clippath-6">
+      <rect class="cls-4" x="135.26" y="0" width="414" height="414"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-2" transform="translate(16.06 504.91)"><tspan x="0" y="0">VITRENEW</tspan></text>
+      <g id="Artwork_9" data-name="Artwork 9">
+        <g class="cls-20">
+          <g class="cls-10">
+            <g class="cls-13">
+              <path class="cls-1" d="M549.26,207c0,114.32-92.68,207-207,207s-207-92.68-207-207S227.94,0,342.26,0s207,92.68,207,207"/>
+              <path class="cls-16" d="M538.78,207c0,108.53-87.98,196.52-196.52,196.52s-196.52-87.99-196.52-196.52S233.73,10.48,342.26,10.48s196.52,87.98,196.52,196.52"/>
+              <circle class="cls-5" cx="342.26" cy="207" r="196.52"/>
+              <path class="cls-6" d="M440.11,76.99c0,3.63-2.94,6.57-6.57,6.57s-6.57-2.94-6.57-6.57,2.94-6.57,6.57-6.57,6.57,2.94,6.57,6.57"/>
+              <path class="cls-18" d="M409.96,54.4c1.97,2.45,1.58,6.03-.87,7.99-2.45,1.97-6.02,1.58-7.99-.87-1.97-2.45-1.58-6.02.87-7.99,2.45-1.97,6.02-1.58,7.99.87"/>
+              <path class="cls-17" d="M380.27,46.22c0,2.61-2.12,4.73-4.73,4.73s-4.73-2.12-4.73-4.73,2.12-4.73,4.73-4.73,4.73,2.12,4.73,4.73"/>
+              <path class="cls-19" d="M348.39,41.48c0,1.8-1.46,3.25-3.25,3.25s-3.25-1.46-3.25-3.25,1.46-3.25,3.25-3.25,3.25,1.46,3.25,3.25"/>
+            </g>
+            <g class="cls-11">
+              <path class="cls-18" d="M161.31,263.24c-1.74-11.67,6.49-22.54,18.18-24.14.19-.02.37-.05.56-.07,10.62-1.3,18.59,2.12,31.53,7.88,9.04,4.02,21.15,9.52,34.35,20.84,10.46,8.97,11.75,13.14,26.47,30.97,12.32,14.93,22.24,26.94,34.91,37.73,9.18,7.81,25.31,21.26,50.11,28.72,8.8,2.65,39.2,11.36,71.52,0,18.86-6.63,32.12-17.89,33.22-16.33.97,1.36-8.91,10.37-17.46,16.89-15.17,11.58-29.05,17.56-34.35,19.71-20.69,8.39-37.96,10.1-50.68,11.26-15.03,1.37-35.4,3.06-60.82-2.82-31.71-7.33-52.94-22.2-63.63-29.85-21.23-15.18-33.31-30.28-45.61-45.66-21.1-26.37-25.39-41.11-27.03-48.31-.54-2.37-.96-4.65-1.29-6.84"/>
+            </g>
+            <g class="cls-12">
+              <g class="cls-15">
+                <image width="363" height="145" transform="translate(160.76 218.61)" xlink:href="data:image/png;base64,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"/>
+              </g>
+            </g>
+            <g class="cls-14">
+              <path class="cls-8" d="M461.24,296.66c0,8.55-6.93,15.49-15.49,15.49s-15.48-6.93-15.48-15.49,6.93-15.48,15.48-15.48,15.49,6.93,15.49,15.48"/>
+              <path class="cls-8" d="M489.66,258.93c0,7.75-6.28,14.03-14.03,14.03s-14.03-6.28-14.03-14.03,6.28-14.03,14.03-14.03,14.03,6.28,14.03,14.03"/>
+              <path class="cls-7" d="M500.22,175.72c0,6.45-5.23,11.68-11.68,11.68s-11.68-5.23-11.68-11.68,5.23-11.68,11.68-11.68,11.68,5.23,11.68,11.68"/>
+              <path class="cls-9" d="M501.22,216.96c0,7.07-5.73,12.79-12.79,12.79s-12.79-5.73-12.79-12.79,5.73-12.79,12.79-12.79,12.79,5.73,12.79,12.79"/>
+              <path class="cls-3" d="M466.97,103.06c0,4.76-3.86,8.61-8.61,8.61s-8.61-3.86-8.61-8.61,3.86-8.61,8.61-8.61,8.61,3.86,8.61,8.61"/>
+              <path class="cls-3" d="M486.76,136.62c0,5.47-4.43,9.9-9.9,9.9s-9.9-4.43-9.9-9.9,4.43-9.9,9.9-9.9,9.9,4.43,9.9,9.9"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
+
+    <span class="hero-tagline-small">Science-Backed · Trusted Guidance · Real Support</span>
+
+    <h1 class="hero-headline">
+      Better eye health supports<br>
+      better <em>daily functioning</em><br>
+      and independence.
+    </h1>
+
+    <p class="hero-sub">
+      Education, guidance, and support for people<br>navigating life-altering vitreous conditions.
+    </p>
+
+    <div class="hero-pills">
+      <span class="pill">Vitreous Floaters</span>
+      <span class="pill">Hemorrhage Recovery</span>
+      <span class="pill">PVD Support</span>
+      <span class="pill">Uveitis & Iritis</span>
+      <span class="pill">Eye Wellness</span>
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#education" class="btn-primary">Start Learning</a>
+      <a href="#signup" class="btn-secondary">Join the Community</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-bar"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- VALUES STRIP -->
+<div class="values-strip">
+  <div class="values-inner">
+    <div class="value-item"><div class="value-dot"></div>Empathy</div>
+    <div class="value-item"><div class="value-dot"></div>Integrity</div>
+    <div class="value-item"><div class="value-dot"></div>Science-Informed</div>
+    <div class="value-item"><div class="value-dot"></div>Partnership</div>
+    <div class="value-item"><div class="value-dot"></div>See Well · Live Fully · Stay Independent</div>
+  </div>
+</div>
+
+<!-- FOUNDER STORY -->
+<section class="founder" id="about">
+  <div class="max-w">
+    <div class="founder-inner">
+      <div>
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">I lived the fear of sudden changes in my vision.</h2>
+        <div class="founder-quote">
+          <p>"I searched. I learned. I experimented. I found a pathway that helped me improve comfort, function, and my ability to live fully. That journey became my purpose."</p>
+        </div>
+        <p class="section-body">Vitrenew was created so others don't have to walk this path alone. Whether you're facing a vitreous hemorrhage, navigating post-PVD anxiety, or managing the daily disruption of floaters — you are not alone. There is a path forward.</p>
+        <br>
+        <p style="font-size:13px;font-weight:400;letter-spacing:0.15em;color:var(--blue-mid);margin-top:8px;">— Kellyanne Best, Founder</p>
+      </div>
+      <div class="founder-visual">
+        <div class="founder-stat">
+          <div class="stat-item">
+            <div class="stat-number">72h</div>
+            <div class="stat-label">Founder's personal clearing experience following protocol</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20,000+</div>
+            <div class="stat-label">Americans experience vitreous hemorrhage annually</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Languages searched — no published non-surgical protocol found</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Approved non-surgical interventions currently exist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="why">
+  <div class="max-w">
+    <span class="section-label">Why It Matters</span>
+    <h2 class="section-title">Your eyes impact every moment of your life.</h2>
+    <p class="section-body">Better eye health supports better daily functioning and independence — so you can keep doing what matters most.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">👁</div>
+        <div class="why-title">You Are Scared and Underserved</div>
+        <p class="why-body">Most patients leave their ophthalmologist with "wait and see" and nothing else. No explanation of what is happening. No emotional support. No practical next steps. That gap is where Vitrenew lives.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <div class="why-title">The Research Gap Is Real</div>
+        <p class="why-body">A systematic search across seven language traditions found no published non-surgical botanical protocol for vitreous hemorrhage clearance. The science exists. The documented application does not — yet.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div class="why-title">You Deserve Better Guidance</div>
+        <p class="why-body">Between watchful waiting and surgery, there is a gap. Vitrenew is building the education, community, and eventually the products to fill it — responsibly, with science, and with your independence as the goal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION SECTION -->
+<section class="education" id="education">
+  <div class="max-w">
+    <div class="education-intro">
+      <div>
+        <span class="section-label">Education & Awareness</span>
+        <h2 class="section-title">Evidence-informed content to help you make empowered choices.</h2>
+      </div>
+      <p class="section-body">We provide understandable explanations, emotional reassurance, practical next steps, and better questions to ask your doctor. Because informed patients get better care.</p>
+    </div>
+    <div class="articles-grid">
+      <a href="#" class="article-card">
+        <span class="article-tag">Urgency & Safety</span>
+        <h3 class="article-title">Sudden Floaters: When Is It an Emergency?</h3>
+        <p class="article-body">Learn which symptoms need same-day retina care — flashes, curtain vision, blood haze — and which can wait for a routine appointment.</p>
+        <span class="article-arrow">Read more →</span>
+      </a>
+      <a href="#" class="article-card">
+        <span class="article-tag">Understanding Your Condition</span>
+        <h3 class="article-title">What a Vitreous Hemorrhage Actually Feels Like</h3>
+        <p class="article-body">A frank account of the experience — the sudden sepia toning, the cloud of blood, the fear — and what the medical literature says about natural clearance timelines.</p>
+        <span class="article-arrow">Read more →</span>
+      </a>
+      <a href="#" class="article-card">
+        <span class="article-tag">Emotional Recovery</span>
+        <h3 class="article-title">PVD Anxiety Is Real. Here Is How to Manage It.</h3>
+        <p class="article-body">The panic after sudden floaters, the driving anxiety, the screen avoidance, the fear of blindness. These are real, common, and underaddressed. You are not alone.</p>
+        <span class="article-arrow">Read more →</span>
+      </a>
+      <a href="#" class="article-card">
+        <span class="article-tag">Wellness Support</span>
+        <h3 class="article-title">Nutrients Studied for Ocular Health</h3>
+        <p class="article-body">A carefully researched, non-prescriptive overview of the compounds studied for eye health — omega-3, quercetin, lutein, astaxanthin — and what the evidence actually says.</p>
+        <span class="article-arrow">Read more →</span>
+      </a>
+      <a href="#" class="article-card">
+        <span class="article-tag">Understanding Your Condition</span>
+        <h3 class="article-title">Why Doctors Often Recommend Watchful Waiting</h3>
+        <p class="article-body">The clinical rationale behind observation-first management, what the 1% per day clearance baseline means, and the questions worth asking your retina specialist.</p>
+        <span class="article-arrow">Read more →</span>
+      </a>
+      <a href="#" class="article-card">
+        <span class="article-tag">Founder Story</span>
+        <h3 class="article-title">My Right Eye, 72 Hours, and Why I Built Vitrenew</h3>
+        <p class="article-body">The founder's account of two vitreous hemorrhages, the protocol she reached for, the outcome that astonished her, and the global literature search that revealed a 35-year gap.</p>
+        <span class="article-arrow">Read more →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT PILLARS -->
+<section class="pillars" id="pillars">
+  <div class="max-w">
+    <span class="section-label">What We Cover</span>
+    <h2 class="section-title">Five pillars of support for changing eyes.</h2>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-number">01</div>
+        <div class="pillar-name">Urgency & Safety</div>
+        <p class="pillar-desc">Red flags, when to go to the ER, what symptoms need same-day care.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">02</div>
+        <div class="pillar-name">Understanding</div>
+        <p class="pillar-desc">What is a PVD. Why floaters happen. How vitreous hemorrhage clears.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">03</div>
+        <div class="pillar-name">Emotional Recovery</div>
+        <p class="pillar-desc">Panic, anxiety, screen fear, sleep disruption. The mental health dimension.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">04</div>
+        <div class="pillar-name">Wellness Support</div>
+        <p class="pillar-desc">Anti-inflammatory habits, nutrients studied for ocular health, lifestyle.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-number">05</div>
+        <div class="pillar-name">Patient Stories</div>
+        <p class="pillar-desc">Real accounts from real people navigating vitreous conditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE SERVE -->
+<section class="serve">
+  <div class="max-w">
+    <span class="section-label">Who We Serve</span>
+    <h2 class="section-title">Everyone navigating vitreous distress deserves support.</h2>
+    <div class="serve-grid">
+      <div class="serve-card">
+        <div class="serve-icon-circle">🔴</div>
+        <div class="serve-title">Recent Floater Events</div>
+        <p class="serve-desc">People with recent opaque scatters seeking answers and relief.</p>
+      </div>
+      <div class="serve-card">
+        <div class="serve-icon-circle">⭕</div>
+        <div class="serve-title">Long-Standing Floaters</div>
+        <p class="serve-desc">Those with large persistent floaters looking for support and strategies.</p>
+      </div>
+      <div class="serve-card">
+        <div class="serve-icon-circle">🔵</div>
+        <div class="serve-title">Transparent Floaters</div>
+        <p class="serve-desc">People with cellophane-type floaters seeking guidance and validation.</p>
+      </div>
+      <div class="serve-card">
+        <div class="serve-icon-circle">🌿</div>
+        <div class="serve-title">Proactive Eye Wellness</div>
+        <p class="serve-desc">Individuals who want to protect their vision and future independence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT PROGRAMS -->
+<section class="pilots" id="pilots">
+  <div class="max-w">
+    <span class="section-label">Research & Pilot Programs</span>
+    <h2 class="section-title">Four targeted pilot programs.<br>One current focus.</h2>
+    <div class="pilots-list">
+      <div class="pilot-row">
+        <div class="pilot-num">1</div>
+        <div class="pilot-content">
+          <div class="pilot-name">Pilot One · Current Focus</div>
+          <div class="pilot-title">Recent Opaque Scatters</div>
+          <p class="pilot-desc">Newly formed, multiple, scattered opaque floaters that are disruptive to daily vision and functioning. This is our active pilot — accepting participants now.</p>
+        </div>
+        <div class="pilot-badge"><span class="badge badge-current">Active</span></div>
+      </div>
+      <div class="pilot-row">
+        <div class="pilot-num">2</div>
+        <div class="pilot-content">
+          <div class="pilot-name">Pilot Two · Future Launch</div>
+          <div class="pilot-title">Large Persistent Floaters</div>
+          <p class="pilot-desc">One or a few large, stable floaters that significantly interfere with daily life and visual functioning.</p>
+        </div>
+        <div class="pilot-badge"><span class="badge badge-future">Coming Soon</span></div>
+      </div>
+      <div class="pilot-row">
+        <div class="pilot-num">3</div>
+        <div class="pilot-content">
+          <div class="pilot-name">Pilot Three · Future Launch</div>
+          <div class="pilot-title">Transparent / Ghost Floaters</div>
+          <p class="pilot-desc">Clear strings, wisps, or cellophane-type floaters visible against bright backgrounds.</p>
+        </div>
+        <div class="pilot-badge"><span class="badge badge-future">Coming Soon</span></div>
+      </div>
+      <div class="pilot-row">
+        <div class="pilot-num">4</div>
+        <div class="pilot-content">
+          <div class="pilot-name">Pilot Four · Future Launch</div>
+          <div class="pilot-title">At-Risk & Proactive Eye Wellness</div>
+          <p class="pilot-desc">Individuals with inflammatory conditions such as Ankylosing Spondylitis who want proactive support for long-term eye health.</p>
+        </div>
+        <div class="pilot-badge"><span class="badge badge-future">Coming Soon</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIP MODEL -->
+<section class="partnership">
+  <div class="max-w">
+    <span class="section-label">Our Partnership Model</span>
+    <h2 class="section-title">We connect you with people who understand.</h2>
+    <div class="partnership-flow">
+      <div class="flow-node">
+        <span class="flow-icon">🌿</span>
+        <div class="flow-label">Naturopaths</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <span class="flow-icon">👁</span>
+        <div class="flow-label">Ocular Health Professionals</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <span class="flow-icon">🤝</span>
+        <div class="flow-label">You</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <span class="flow-icon">✨</span>
+        <div class="flow-label">Better Eye Health. Better Life.</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:36px;font-size:14px;font-weight:300;color:var(--text-light);max-width:520px;margin-left:auto;margin-right:auto;line-height:1.8;">We work with naturopaths and ocular health professionals who understand that patients deserve more than watchful waiting. We curate. You benefit.</p>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="email-section" id="signup">
+  <div class="max-w">
+    <span class="section-label" style="color:var(--blue-soft);display:block;text-align:center;margin-bottom:16px;">Stay Informed</span>
+    <h2 class="section-title" style="max-width:560px;text-align:center;">Be the first to know when Vitrenew launches.</h2>
+    <p class="email-body">Join our community for education, pilot study updates, founder insights, and early access to the Vitrenew protocol when it becomes available.</p>
+    <div class="email-form">
+      <input type="email" class="email-input" placeholder="Your email address" id="emailInput">
+      <button class="email-btn" onclick="handleSignup()">Join the List</button>
+    </div>
+    <p class="email-note" id="emailNote">No spam. No pressure. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">VITRENEW</div>
+        <div class="footer-brand-tag">Daily Support for Changing Eyes</div>
+        <p class="footer-brand-desc">Vitrenew is a pre-launch vision wellness company building education, community, and eventually products for people navigating vitreous floaters and hemorrhagic eye conditions. You are not alone. There is a path forward.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Learn</div>
+        <ul class="footer-links">
+          <li><a href="#">Sudden Floaters: When Is It an Emergency?</a></li>
+          <li><a href="#">What a Vitreous Hemorrhage Feels Like</a></li>
+          <li><a href="#">PVD Anxiety Is Real</a></li>
+          <li><a href="#">Nutrients for Ocular Health</a></li>
+          <li><a href="#">Watchful Waiting Explained</a></li>
+          <li><a href="#">The Founder's Story</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Vitrenew</div>
+        <ul class="footer-links">
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">Pilot Programs</a></li>
+          <li><a href="#">Partnership Model</a></li>
+          <li><a href="#">Join the Community</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">Vitrenew is a pre-launch wellness company. This website provides educational information only and does not constitute medical advice. The statements on this site have not been evaluated by the FDA. Vitrenew products are not intended to diagnose, treat, cure, or prevent any disease. Always consult your ophthalmologist or healthcare provider before making any changes to your eye care routine. © 2026 Vitrenew. All rights reserved.</p>
+      <span class="footer-tagline">See Well. Live Fully. Stay Independent.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Floating dots
+const dotsContainer = document.getElementById('heroDots');
+for (let i = 0; i < 24; i++) {
+  const dot = document.createElement('div');
+  dot.className = 'hero-dot';
+  const size = Math.random() * 8 + 3;
+  dot.style.cssText = `
+    width:${size}px;height:${size}px;
+    left:${Math.random()*100}%;
+    top:${10+Math.random()*80}%;
+    animation-duration:${10+Math.random()*14}s;
+    animation-delay:${Math.random()*12}s;
+  `;
+  dotsContainer.appendChild(dot);
+}
+
+// Email signup
+function handleSignup() {
+  const input = document.getElementById('emailInput');
+  const note = document.getElementById('emailNote');
+  if (!input.value || !input.value.includes('@')) {
+    note.textContent = 'Please enter a valid email address.';
+    note.style.color = 'rgba(255,180,100,0.8)';
+    return;
+  }
+  input.value = '';
+  note.textContent = 'Thank you. We will be in touch when Vitrenew launches.';
+  note.style.color = 'rgba(255,255,255,0.6)';
+}
+
+// Intersection observer for reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.why-card,.article-card,.pillar-card,.serve-card,.pilot-row,.flow-node').forEach(el => {
+  el.style.cssText += 'opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease;';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
